@@ -21,5 +21,7 @@ public class MainActivity extends AppCompatActivity {
         boolean isAgree = QuinoxlessPrivacyUtil.isUserAgreed(this);
         //更新用户同意使用隐私权限的标记，可以方便您在特定的场景下再次弹窗
         QuinoxlessPrivacyUtil.setUserAgreedState(this,false);*/
+
+//        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
     }
 }
