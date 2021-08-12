@@ -6,7 +6,10 @@ import android.content.Context;
 
 import com.alipay.mobile.framework.quinoxless.IInitCallback;
 import com.alipay.mobile.framework.quinoxless.QuinoxlessFramework;
+import com.alipay.mobile.nebula.provider.H5AppCenterPresetProvider;
+import com.alipay.mobile.nebula.util.H5Utils;
 import com.mccree.review.utils.LLog;
+import com.mpaas.tinyappcommonres.TinyAppCenterPresetProvider;
 
 /**
  * Created by: lixingzhou
@@ -23,7 +26,12 @@ public class MyApplication extends Application {
         super.onCreate();
         sApp = this;
         sContext = getApplicationContext();
+        QuinoxlessFramework.init();
+    }
 
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
         initMPaaS();
     }
 
@@ -32,6 +40,8 @@ public class MyApplication extends Application {
             @Override
             public void onPostInit() {
                 LLog.i("mPaaS init ! ");
+                // 初始化小程序公共资源包
+                H5Utils.setProvider(H5AppCenterPresetProvider.class.getName(), new TinyAppCenterPresetProvider());
             }
         });
     }

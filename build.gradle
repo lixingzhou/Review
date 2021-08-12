@@ -1,7 +1,7 @@
 apply plugin: 'com.alipay.apollo.optimize'// Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext.mpaas_artifact = "mpaas-baseline"
-    ext.mpaas_baseline = "10.1.68-30"
+    ext.mpaas_baseline = "10.1.68-32"
     repositories {
         google()
         mavenCentral()
@@ -36,6 +36,8 @@ allprojects {
                 password 'mrk8929'
             }
         } // Warning: this repository is going to shut down soon
+
+        maven { url 'https://jitpack.io' }
     }
 }
 
