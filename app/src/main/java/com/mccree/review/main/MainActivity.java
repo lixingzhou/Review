@@ -11,16 +11,11 @@ import android.view.View;
 import android.widget.Toast;
 
 //import com.alipay.mobile.framework.quinoxless.QuinoxlessPrivacyUtil;
-import com.alipay.mobile.framework.quinoxless.QuinoxlessPrivacyUtil;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.mccree.review.R;
 import com.mccree.review.module.mpaas.MPaaSActivity;
 import com.mccree.review.module.view.ViewActivity;
-import com.mccree.review.utils.LLog;
-import com.mpaas.mas.adapter.api.MPLogger;
-import com.mpaas.nebula.adapter.api.MPTinyHelper;
-import com.ut.device.UTDevice;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.runtime.Permission;
 
@@ -56,20 +51,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initEvent() {
-        //同意隐私协议
-//        QuinoxlessPrivacyUtil.sendPrivacyAgreedBroadcast(this);
-        /*//用户是否已经同意隐私权限的使用。
-        boolean isAgree = QuinoxlessPrivacyUtil.isUserAgreed(this);
-        //更新用户同意使用隐私权限的标记，可以方便您在特定的场景下再次弹窗
-        QuinoxlessPrivacyUtil.setUserAgreedState(this,false);*/
-
-//        String deviceId = UTDevice.getUtdid(this);
-//        LLog.i("DeviceID = " + deviceId);
-
-//        MPTinyHelper tinyHelper = MPTinyHelper.getInstance();
-//        tinyHelper.setTinyAppVHost("test.com");
-//        MPLogger.setUserId("W/AmOG/BvZADANH9VbsDu0Wo");
-
 
     }
 

@@ -29,15 +29,23 @@
             android:name="UCSDKAppKey"
             android:value="WCz9Y2aoX2q9yug+22/+NOFe8/LYzZeNEPnJguCO8ZK1/e3yYwuOTjXsTeWrj6WpICFDRMbu5Po4OXCWvvzY1g==" />
 
-        <activity android:name=".main.MainActivity">
+        <activity
+            android:name=".main.MainActivity"
+            android:label="@string/app_name">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+        <activity android:name=".module.mpaas.MPaaSActivity" />
+        <activity android:name=".module.view.ViewActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".module.mpaas.MPaaSActivity" />
-        <activity android:name=".module.view.ViewActivity" />
 
         <meta-data
             android:name="privacy_switcher"

@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.widget.FrameLayout;
 
 import com.mccree.review.R;
+import com.mccree.review.module.view.widget.draw.DrawView01;
+import com.mccree.review.module.view.widget.draw.DrawView02;
+import com.mccree.review.module.view.widget.draw.DrawView03;
 
 public class ViewActivity extends AppCompatActivity {
 
@@ -17,5 +20,8 @@ public class ViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view);
 
         mLayoutRoot = findViewById(R.id.layout_root);
+//        mLayoutRoot.addView(new DrawView01(this));
+//        mLayoutRoot.addView(new DrawView02(this));
+        mLayoutRoot.addView(new DrawView03(this));
     }
 }
