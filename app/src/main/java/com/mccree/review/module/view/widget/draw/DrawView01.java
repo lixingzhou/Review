@@ -12,7 +12,7 @@ import android.view.View;
 /**
  * Created by: lixingzhou
  * Created Date: 2021/8/12 16:06
- * Description:绘图篇  01
+ * Description:概述及基本几何图形绘制
  */
 public class DrawView01 extends View {
 

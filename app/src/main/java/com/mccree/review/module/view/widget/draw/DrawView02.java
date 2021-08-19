@@ -13,7 +13,7 @@ import android.view.View;
 /**
  * Created by: lixingzhou
  * Created Date: 2021/8/17 14:33
- * Description:绘图篇 02
+ * Description:路径及文字
  */
 public class DrawView02 extends View {
 

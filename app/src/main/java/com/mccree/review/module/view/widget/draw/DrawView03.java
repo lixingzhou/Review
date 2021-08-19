@@ -14,7 +14,7 @@ import android.view.View;
 /**
  * Created by: lixingzhou
  * Created Date: 2021/8/17 16:29
- * Description:区域
+ * Description:区域（Range）
  */
 public class DrawView03 extends View {
 

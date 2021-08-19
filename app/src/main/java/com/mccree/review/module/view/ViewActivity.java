@@ -9,6 +9,8 @@ import com.mccree.review.R;
 import com.mccree.review.module.view.widget.draw.DrawView01;
 import com.mccree.review.module.view.widget.draw.DrawView02;
 import com.mccree.review.module.view.widget.draw.DrawView03;
+import com.mccree.review.module.view.widget.draw.DrawView04;
+import com.mccree.review.module.view.widget.draw.DrawView05;
 
 public class ViewActivity extends AppCompatActivity {
 
@@ -20,8 +22,10 @@ public class ViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view);
 
         mLayoutRoot = findViewById(R.id.layout_root);
-//        mLayoutRoot.addView(new DrawView01(this));
+//        mLayou tRoot.addView(new DrawView01(this));
 //        mLayoutRoot.addView(new DrawView02(this));
-        mLayoutRoot.addView(new DrawView03(this));
+//        mLayoutRoot.addView(new DrawView03(this));
+//        mLayoutRoot.addView(new DrawView04(this));
+        mLayoutRoot.addView(new DrawView05(this));
     }
 }
