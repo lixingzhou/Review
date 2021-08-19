@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.view.View;
 
 import com.mccree.review.utils.LLog;
@@ -22,9 +23,9 @@ public class DrawView05 extends View {
 
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
-        mPaint.setColor(Color.RED);
+
         mPaint.setStyle(Paint.Style.FILL);
-        mPaint.setStrokeWidth(3);
+//        mPaint.setStrokeWidth(3);
     }
 
     @Override
@@ -34,17 +35,15 @@ public class DrawView05 extends View {
         int baseLineX = 0;
         int baseLineY = 200;
 
-        //画基线
-        canvas.drawLine(baseLineX, baseLineY, 1080, baseLineY, mPaint);
-
-        String text = "Android自定义控件";
+        String text = "自定义控件";
+        /*mPaint.setColor(Color.GREEN);
         mPaint.setTextSize(120);
-        mPaint.setColor(Color.GREEN);
-
         mPaint.setTextAlign(Paint.Align.LEFT);
         canvas.drawText(text, baseLineX, baseLineY, mPaint);
 
-
+        Rect minRect = new Rect();
+        mPaint.getTextBounds(text, 0, text.length(), minRect);
+        LLog.e(minRect.toShortString());
 
         //计算各线在位置
         Paint.FontMetrics fm = mPaint.getFontMetrics();
@@ -72,8 +71,62 @@ public class DrawView05 extends View {
 
         //画bottom
         mPaint.setColor(Color.RED);
-        canvas.drawLine(baseLineX, bottom, 3000, bottom, mPaint);
+        canvas.drawLine(baseLineX, bottom, 3000, bottom, mPaint);*/
 
+
+        //画文字显示区域
+        /*mPaint.setTextSize(120);
+        mPaint.setTextAlign(Paint.Align.LEFT);
+
+        //画text所占的区域
+        Paint.FontMetricsInt fm = mPaint.getFontMetricsInt();
+        int top = baseLineY + fm.top;
+        int bottom = baseLineY + fm.bottom;
+        int width = (int) mPaint.measureText(text);
+        Rect rect = new Rect(baseLineX, top, baseLineX + width, bottom);
+
+        mPaint.setColor(Color.GREEN);
+        canvas.drawRect(rect, mPaint);
+
+        //画最小矩形
+        Rect minRect = new Rect();
+        mPaint.getTextBounds(text, 0, text.length(), minRect);
+        minRect.top = baseLineY + minRect.top;
+        minRect.bottom = baseLineY + minRect.bottom;
+        mPaint.setColor(Color.RED);
+        canvas.drawRect(minRect, mPaint);
+
+        //写文字
+        mPaint.setColor(Color.BLACK);
+        canvas.drawText(text, baseLineX, baseLineY, mPaint);*/
+
+        //通过中间线,推导baseline, drawText
+//        baseline = center + (FontMetrics.bottom - FontMetrics.top)/2 - FontMetrics.bottom;
+
+        int center = 200;
+        baseLineX = 0;
+
+        //设置paint
+        Paint paint = new Paint();
+        paint.setTextSize(120); //以px为单位
+        paint.setTextAlign(Paint.Align.LEFT);
+        paint.setStrokeWidth(3);
+
+        //画center线
+        paint.setColor(Color.YELLOW);
+        canvas.drawLine(baseLineX, center, 3000, center, paint);
+
+        //计算出baseLine位置
+        Paint.FontMetricsInt fm = paint.getFontMetricsInt();
+        baseLineY = center + (fm.bottom - fm.top) / 2 - fm.bottom;
+
+        //画基线
+        paint.setColor(Color.RED);
+        canvas.drawLine(baseLineX, baseLineY, 3000, baseLineY, paint);
+
+        //写文字
+        paint.setColor(Color.GREEN);
+        canvas.drawText(text, baseLineX, baseLineY, paint);
 
     }
 }
