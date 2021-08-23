@@ -45,5 +45,8 @@ public class ViewActivity extends AppCompatActivity {
         mLayoutRoot.addView(view06);*/
 
         mLayoutRoot.addView(new DrawView06_01(this));
+
+//        mLayoutRoot.addView(new DrawView07(this));
+
     }
 }
