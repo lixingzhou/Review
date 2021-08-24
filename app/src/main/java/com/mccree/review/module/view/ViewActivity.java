@@ -15,6 +15,8 @@ import com.mccree.review.module.view.widget.draw.DrawView04;
 import com.mccree.review.module.view.widget.draw.DrawView05;
 import com.mccree.review.module.view.widget.draw.DrawView06;
 import com.mccree.review.module.view.widget.draw.DrawView06_01;
+import com.mccree.review.module.view.widget.draw.DrawView07;
+import com.mccree.review.module.view.widget.draw.DrawView08;
 
 public class ViewActivity extends AppCompatActivity {
 
@@ -44,9 +46,9 @@ public class ViewActivity extends AppCompatActivity {
         });
         mLayoutRoot.addView(view06);*/
 
-        mLayoutRoot.addView(new DrawView06_01(this));
-
+//        mLayoutRoot.addView(new DrawView06_01(this));
 //        mLayoutRoot.addView(new DrawView07(this));
+        mLayoutRoot.addView(new DrawView08(this));
 
     }
 }
