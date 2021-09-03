@@ -20,8 +20,6 @@ public class MPaaSActivity extends AppCompatActivity {
 //                MPNebula.startApp("6214856552053526");
 //                MPNebula.startApp("1234567800000000");
 //                MPNebula.startApp("2018080616290001");
-
-//                AppMarketUtils.gotoMarket(MPaaSActivity.this);
             }
 
         });

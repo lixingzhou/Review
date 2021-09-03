@@ -14,7 +14,9 @@ import android.widget.Toast;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.mccree.review.R;
+import com.mccree.review.module.fragment.FragmentActivity;
 import com.mccree.review.module.mpaas.MPaaSActivity;
+import com.mccree.review.module.tools.ToolsActivity;
 import com.mccree.review.module.view.ViewActivity;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.runtime.Permission;
@@ -56,9 +58,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         mRecyclerView = findViewById(R.id.recyclerView);
+
         mModules = new ArrayList<>();
         mModules.add(new Module(0, "mPaaS"));
         mModules.add(new Module(1, "View"));
+        mModules.add(new Module(2, "Fragment"));
+        mModules.add(new Module(3, "Tools"));
 
         mModuleAdapter = new ModuleAdapter(R.layout.layout_module, mModules);
         mModuleAdapter.setOnItemClickListener(new OnItemClickListener() {
@@ -72,6 +77,12 @@ public class MainActivity extends AppCompatActivity {
                     case 1:
                         intent = new Intent(MainActivity.this, ViewActivity.class);
                         break;
+                    case 2:
+                        intent = new Intent(MainActivity.this, FragmentActivity.class);
+                        break;
+                    case 3:
+                        intent = new Intent(MainActivity.this, ToolsActivity.class);
+                        break;
                 }
                 if (intent != null) {
                     startActivity(intent);
@@ -82,6 +93,5 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager manager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(manager);
         mRecyclerView.setAdapter(mModuleAdapter);
-
     }
 }

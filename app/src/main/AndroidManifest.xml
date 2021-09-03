@@ -21,6 +21,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Review"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".module.fragment.FragmentActivity"
+            android:exported="true" />
+        <activity
+            android:name=".module.tools.ToolsActivity"
+            android:exported="true" />
 
         <meta-data
             android:name="nebula.android.meta.enable"
@@ -32,19 +38,19 @@
         <activity
             android:name=".main.MainActivity"
             android:label="@string/app_name">
-            <!-- <intent-filter>
+             <intent-filter>
                  <action android:name="android.intent.action.MAIN" />
 
                  <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>-->
+             </intent-filter>
         </activity>
         <activity android:name=".module.mpaas.MPaaSActivity" />
         <activity android:name=".module.view.ViewActivity">
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
 
         <meta-data
