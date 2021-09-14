@@ -10,14 +10,14 @@ android {
     defaultConfig {
         applicationId "com.mccree.review"
         minSdkVersion 21
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        targetSdkVersion 26
+        versionCode 100
+        versionName "1.0.0"
         multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        ndk{
-            abiFilters 'armeabi'
+        ndk {
+            abiFilters 'armeabi-v7a'
         }
     }
 
@@ -56,10 +56,16 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'com.mpaas.android:tinyapp'
     implementation 'com.mpaas.android:inside'
+    implementation 'com.mpaas.android:utdid'
+    implementation 'com.mpaas.android:cdp'
+    implementation 'com.mpaas.android:nebula'
+    implementation 'com.mpaas.android:lbs'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
     implementation 'com.yanzhenjie:permission:2.0.3'
+
+    api 'com.tencent.tbs.tbssdk:sdk:43939'
 }

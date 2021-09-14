@@ -1,7 +1,6 @@
 package com.mccree.review.main;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,14 +9,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-//import com.alipay.mobile.framework.quinoxless.QuinoxlessPrivacyUtil;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
+import com.mccree.review.MyApplication;
 import com.mccree.review.R;
+import com.mccree.review.base.MyBaseActivity;
 import com.mccree.review.module.fragment.FragmentActivity;
+import com.mccree.review.module.mpaas.CdpManager;
 import com.mccree.review.module.mpaas.MPaaSActivity;
+import com.mccree.review.module.mpaas.MPaaSSplashActivity;
 import com.mccree.review.module.tools.ToolsActivity;
 import com.mccree.review.module.view.ViewActivity;
+import com.mccree.review.utils.LLog;
+import com.mpaas.mas.adapter.api.MPLogger;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.runtime.Permission;
 
@@ -26,7 +30,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends MyBaseActivity {
 
     private RecyclerView mRecyclerView;
     private List<Module> mModules;
@@ -39,9 +43,29 @@ public class MainActivity extends AppCompatActivity {
 
         initView();
 
+        requestPermission();
+        MPLogger.reportUserLogin(MyApplication.getInstance().getAccountId());
+        MPLogger.setUserId(MyApplication.getInstance().getAccountId());
+
+        CdpManager.getInstance().refreshAllCdp();
+        //智能投放-启动页广告
+        try {
+            LLog.d("CdpManager.getInstance().checkIfSplashPrepared() = " + CdpManager.getInstance().checkIfSplashPrepared());
+            if (CdpManager.getInstance().checkIfSplashPrepared()) {
+                showSplash();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            LLog.e(e.getMessage());
+        }
+
+    }
+
+    private void requestPermission() {
         AndPermission.with(this)
                 .runtime()
-                .permission(Permission.WRITE_EXTERNAL_STORAGE, Permission.READ_EXTERNAL_STORAGE, Permission.ACCESS_FINE_LOCATION)
+                .permission(Permission.WRITE_EXTERNAL_STORAGE, Permission.READ_EXTERNAL_STORAGE
+                        , Permission.ACCESS_FINE_LOCATION, Permission.ACCESS_BACKGROUND_LOCATION, Permission.ACCESS_COARSE_LOCATION)
                 .onGranted(permissions -> {
                     initEvent();
                 })
@@ -52,12 +76,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void showSplash() {
+        startActivity(new Intent(this, MPaaSSplashActivity.class));
+        overridePendingTransition(0, 0); // 去掉转场动画
+    }
+
     private void initEvent() {
 
     }
 
     private void initView() {
-        mRecyclerView = findViewById(R.id.recyclerView);
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
         mModules = new ArrayList<>();
         mModules.add(new Module(0, "mPaaS"));
@@ -93,5 +122,11 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager manager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(manager);
         mRecyclerView.setAdapter(mModuleAdapter);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        MPLogger.setUserId(null);
     }
 }

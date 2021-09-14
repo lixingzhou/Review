@@ -1,28 +1,46 @@
 package com.mccree.review.module.mpaas;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.view.View;
 
 import com.mccree.review.R;
+import com.mccree.review.base.MyBaseActivity;
+import com.mccree.review.utils.LLog;
+import com.mpaas.cdp.CdpAdvertisementService;
+import com.mpaas.cdp.CdpAdvertisementView;
+import com.mpaas.cdp.structure.SpaceInfo;
 
-public class MPaaSActivity extends AppCompatActivity {
+public class MPaaSActivity extends MyBaseActivity {
+
+    private CdpAdvertisementView mCdpAdvertisementView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mpaas_activity);
 
-        findViewById(R.id.btn_open).setOnClickListener(new View.OnClickListener() {
+        mCdpAdvertisementView = (CdpAdvertisementView) findViewById(R.id.cdp_content);
+
+
+        CdpManager.getInstance().getSpaceInfoByCode("banner_test", new CdpAdvertisementService.IAdGetSingleSpaceInfoCallBack() {
             @Override
-            public void onClick(View v) {
-//                MPNebula.startApp("6214856552053526");
-//                MPNebula.startApp("1234567800000000");
-//                MPNebula.startApp("2018080616290001");
+            public void onSuccess(SpaceInfo spaceInfo) {
+                LLog.i("onSuccess() " + spaceInfo.toString());
+                if (spaceInfo.spaceObjectList != null) {
+                    mCdpAdvertisementView.updateSpaceCode("banner_test");
+                }
             }
 
+            @Override
+            public void onFail() {
+                LLog.e("onFail() ");
+            }
         });
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+//        mCdpAdvertisementView.updateSpaceCode("banner_test");
     }
 }

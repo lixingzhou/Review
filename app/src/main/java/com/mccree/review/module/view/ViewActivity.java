@@ -1,13 +1,12 @@
 package com.mccree.review.module.view;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
 import com.mccree.review.R;
+import com.mccree.review.base.MyBaseActivity;
 import com.mccree.review.module.view.widget.draw.DrawView01;
 import com.mccree.review.module.view.widget.draw.DrawView02;
 import com.mccree.review.module.view.widget.draw.DrawView03;
@@ -18,7 +17,7 @@ import com.mccree.review.module.view.widget.draw.DrawView06_01;
 import com.mccree.review.module.view.widget.draw.DrawView07;
 import com.mccree.review.module.view.widget.draw.DrawView08;
 
-public class ViewActivity extends AppCompatActivity {
+public class ViewActivity extends MyBaseActivity {
 
     private FrameLayout mLayoutRoot;
     private Button mBtnClick;
@@ -28,8 +27,8 @@ public class ViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view);
 
-        mLayoutRoot = findViewById(R.id.layout_root);
-        mBtnClick = findViewById(R.id.btn_click);
+        mLayoutRoot = (FrameLayout) findViewById(R.id.layout_root);
+        mBtnClick = (Button) findViewById(R.id.btn_click);
 //        mLayou tRoot.addView(new DrawView01(this));
 //        mLayoutRoot.addView(new DrawView02(this));
 //        mLayoutRoot.addView(new DrawView03(this));
