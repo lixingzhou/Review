@@ -47,10 +47,14 @@ public class MainActivity extends MyBaseActivity {
         MPLogger.reportUserLogin(MyApplication.getInstance().getAccountId());
         MPLogger.setUserId(MyApplication.getInstance().getAccountId());
 
+        //刷新所有广告
         CdpManager.getInstance().refreshAllCdp();
+        //设置广告点击事件处理器
+        CdpManager.getInstance().setActionExecutor();
+
+
         //智能投放-启动页广告
         try {
-            LLog.d("CdpManager.getInstance().checkIfSplashPrepared() = " + CdpManager.getInstance().checkIfSplashPrepared());
             if (CdpManager.getInstance().checkIfSplashPrepared()) {
                 showSplash();
             }
@@ -94,7 +98,7 @@ public class MainActivity extends MyBaseActivity {
         mModules.add(new Module(2, "Fragment"));
         mModules.add(new Module(3, "Tools"));
 
-        mModuleAdapter = new ModuleAdapter(R.layout.layout_module, mModules);
+        mModuleAdapter = new ModuleAdapter(R.layout.layout_module_item, mModules);
         mModuleAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(@NonNull @NotNull BaseQuickAdapter<?, ?> adapter, @NonNull @NotNull View view, int position) {

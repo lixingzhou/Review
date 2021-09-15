@@ -76,6 +76,15 @@
         <meta-data
             android:name="privacy_switcher"
             android:value="false" />
+
+        <!-- 弹屏广告高宽度设置 -->
+        <meta-data
+            android:name="com.mpaas.cdp.space.height"
+            android:value="800" />
+        <meta-data
+            android:name="com.mpaas.cdp.space.width"
+            android:value="350 " />
+
     </application>
 
 </manifest>
