@@ -80,10 +80,14 @@
         <!-- 弹屏广告高宽度设置 -->
         <meta-data
             android:name="com.mpaas.cdp.space.height"
-            android:value="800" />
+            android:value="360" />
         <meta-data
             android:name="com.mpaas.cdp.space.width"
-            android:value="350 " />
+            android:value="270 " />
+
+        <meta-data
+            android:name="com.mpaas.cdp.space.dpmode "
+            android:value="px" />
 
     </application>
 
