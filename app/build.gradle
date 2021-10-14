@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'com.alipay.apollo.baseline.config'
+    id 'org.greenrobot.greendao'
 }
 
 android {
@@ -46,6 +47,15 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    greendao {
+        // 数据库版本号
+        schemaVersion 1
+        // 生成数据库文件的目录
+        targetGenDir 'src/main/java'
+        // 生成的数据库相关文件的包名
+        daoPackage 'com.mccree.review.greendao.gen'
+    }
 }
 
 dependencies {
@@ -68,4 +78,6 @@ dependencies {
     implementation 'com.yanzhenjie:permission:2.0.3'
 
     api 'com.tencent.tbs.tbssdk:sdk:43939'
+
+    implementation 'org.greenrobot:greendao:3.2.2'
 }

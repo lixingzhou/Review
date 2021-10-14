@@ -23,6 +23,9 @@
         android:theme="@style/Theme.Review"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".module.database.DatabaseActivity"
+            android:exported="true" />
+        <activity
             android:name=".module.mpaas.MPaaSSplashActivity"
             android:exported="true" />
         <activity
@@ -38,22 +41,18 @@
         <meta-data
             android:name="UCSDKAppKey"
             android:value="WCz9Y2aoX2q9yug+22/+NOFe8/LYzZeNEPnJguCO8ZK1/e3yYwuOTjXsTeWrj6WpICFDRMbu5Po4OXCWvvzY1g==" />
-
         <meta-data
             android:name="com.mpaas.cdp.autoInit"
-            android:value="true" />
-
-        <!--适配targetSdkVersion = 28-->
-        <!--<uses-library
+            android:value="true" /> <!-- 适配targetSdkVersion = 28 -->
+        <!--
+<uses-library
             android:name="org.apache.http.legacy"
-            android:required="false" />-->
-
+            android:required="false" />
+        -->
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="f46259a9380975642d1a62f94554a7aa" />
-        <!--高德定位 Service-->
+            android:value="f46259a9380975642d1a62f94554a7aa" /> <!-- 高德定位 Service -->
         <service android:name="com.amap.api.location.APSService" />
-
 
         <activity
             android:name=".main.MainActivity"
@@ -66,29 +65,28 @@
         </activity>
         <activity android:name=".module.mpaas.MPaaSActivity" />
         <activity android:name=".module.view.ViewActivity">
-            <!--<intent-filter>
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
 
         <meta-data
             android:name="privacy_switcher"
-            android:value="false" />
-
-        <!-- 弹屏广告高宽度设置 -->
+            android:value="false" /> <!-- 弹屏广告高宽度设置 -->
         <meta-data
             android:name="com.mpaas.cdp.space.height"
             android:value="360" />
         <meta-data
             android:name="com.mpaas.cdp.space.width"
             android:value="270 " />
-
         <meta-data
             android:name="com.mpaas.cdp.space.dpmode "
             android:value="px" />
-
     </application>
 
 </manifest>

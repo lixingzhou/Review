@@ -14,6 +14,8 @@ import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.mccree.review.MyApplication;
 import com.mccree.review.R;
 import com.mccree.review.base.MyBaseActivity;
+import com.mccree.review.greendao.DaoManager;
+import com.mccree.review.module.database.DatabaseActivity;
 import com.mccree.review.module.fragment.FragmentActivity;
 import com.mccree.review.module.mpaas.CdpManager;
 import com.mccree.review.module.mpaas.MPaaSActivity;
@@ -63,6 +65,8 @@ public class MainActivity extends MyBaseActivity {
             LLog.e(e.getMessage());
         }
 
+        DaoManager.getInstance().init(getApplication());
+
     }
 
     private void requestPermission() {
@@ -97,6 +101,7 @@ public class MainActivity extends MyBaseActivity {
         mModules.add(new Module(1, "View"));
         mModules.add(new Module(2, "Fragment"));
         mModules.add(new Module(3, "Tools"));
+        mModules.add(new Module(4, "Database"));
 
         mModuleAdapter = new ModuleAdapter(R.layout.layout_module_item, mModules);
         mModuleAdapter.setOnItemClickListener(new OnItemClickListener() {
@@ -115,6 +120,9 @@ public class MainActivity extends MyBaseActivity {
                         break;
                     case 3:
                         intent = new Intent(MainActivity.this, ToolsActivity.class);
+                        break;
+                    case 4:
+                        intent = new Intent(MainActivity.this, DatabaseActivity.class);
                         break;
                 }
                 if (intent != null) {
