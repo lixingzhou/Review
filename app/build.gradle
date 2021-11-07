@@ -5,13 +5,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.mccree.review"
         minSdkVersion 21
-        targetSdkVersion 26
+        targetSdkVersion 29
         versionCode 100
         versionName "1.0.0"
         multiDexEnabled true
@@ -55,6 +55,12 @@ android {
         targetGenDir 'src/main/java'
         // 生成的数据库相关文件的包名
         daoPackage 'com.mccree.review.greendao.gen'
+    }
+
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main/java', 'src/main/aidl']
+        }
     }
 }
 
