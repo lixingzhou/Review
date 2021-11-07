@@ -67,6 +67,9 @@ public class MainActivity extends MyBaseActivity {
 
         DaoManager.getInstance().init(getApplication());
 
+        //branch test 1
+        //测试
+
     }
 
     private void requestPermission() {
