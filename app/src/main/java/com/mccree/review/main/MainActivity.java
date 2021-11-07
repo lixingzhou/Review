@@ -67,8 +67,10 @@ public class MainActivity extends MyBaseActivity {
 
         DaoManager.getInstance().init(getApplication());
 
-        //branch test 1
-        //测试
+
+        //test  local modify
+        //修改local分支内容，然后合并
+
 
     }
 
