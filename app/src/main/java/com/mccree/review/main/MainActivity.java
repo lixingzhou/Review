@@ -67,6 +67,9 @@ public class MainActivity extends MyBaseActivity {
 
         DaoManager.getInstance().init(getApplication());
 
+        //test  local modify
+        //修改local分支内容，然后合并
+
     }
 
     private void requestPermission() {
