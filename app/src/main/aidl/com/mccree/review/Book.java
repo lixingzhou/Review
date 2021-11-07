@@ -1,4 +1,4 @@
-package com.mccree.review.module.aldl;
+package com.mccree.review;
 
 import android.os.Parcel;
 import android.os.Parcelable;
