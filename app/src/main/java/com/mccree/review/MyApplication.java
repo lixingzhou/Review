@@ -4,8 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 
-import com.alipay.mobile.framework.quinoxless.IInitCallback;
-import com.alipay.mobile.framework.quinoxless.QuinoxlessFramework;
 import com.mccree.review.utils.LLog;
 import com.tencent.smtt.export.external.TbsCoreSettings;
 import com.tencent.smtt.sdk.QbSdk;
@@ -34,7 +32,6 @@ public class MyApplication extends Application {
         super.onCreate();
         sApp = this;
         sContext = getApplicationContext();
-        QuinoxlessFramework.init();
         ExecutorService service = Executors.newFixedThreadPool(CORE_POOL_SIZE);
         service.submit(new Runnable() {
             @Override
@@ -77,18 +74,6 @@ public class MyApplication extends Application {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-        initMPaaS();
-    }
-
-    private void initMPaaS() {
-        QuinoxlessFramework.setup(this, new IInitCallback() {
-            @Override
-            public void onPostInit() {
-                LLog.i("mPaaS init ! ");
-                // 初始化小程序公共资源包
-//                H5Utils.setProvider(H5AppCenterPresetProvider.class.getName(), new TinyAppCenterPresetProvider());
-            }
-        });
     }
 
     public static MyApplication getInstance() {

@@ -1,14 +1,14 @@
 package com.mccree.review.base;
 
 
-import com.alipay.mobile.framework.app.ui.BaseActivity;
+import android.app.Activity;
 
 /**
  * Created by: lixingzhou
  * Created Date: 2021/9/13 10:47
  * Description:
  */
-public class MyBaseActivity extends BaseActivity {
+public class MyBaseActivity extends Activity {
 
 
     @Override

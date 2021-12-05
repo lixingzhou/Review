@@ -11,19 +11,15 @@ import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
-import com.mccree.review.MyApplication;
 import com.mccree.review.R;
 import com.mccree.review.base.MyBaseActivity;
 import com.mccree.review.greendao.DaoManager;
 import com.mccree.review.module.database.DatabaseActivity;
 import com.mccree.review.module.fragment.FragmentActivity;
-import com.mccree.review.module.mpaas.CdpManager;
 import com.mccree.review.module.mpaas.MPaaSActivity;
 import com.mccree.review.module.mpaas.MPaaSSplashActivity;
 import com.mccree.review.module.tools.ToolsActivity;
 import com.mccree.review.module.view.ViewActivity;
-import com.mccree.review.utils.LLog;
-import com.mpaas.mas.adapter.api.MPLogger;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.runtime.Permission;
 
@@ -46,31 +42,8 @@ public class MainActivity extends MyBaseActivity {
         initView();
 
         requestPermission();
-        MPLogger.reportUserLogin(MyApplication.getInstance().getAccountId());
-        MPLogger.setUserId(MyApplication.getInstance().getAccountId());
-
-        //刷新所有广告
-        CdpManager.getInstance().refreshAllCdp();
-        //设置广告点击事件处理器
-        CdpManager.getInstance().setActionExecutor();
-
-
-        //智能投放-启动页广告
-        try {
-            if (CdpManager.getInstance().checkIfSplashPrepared()) {
-                showSplash();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            LLog.e(e.getMessage());
-        }
 
         DaoManager.getInstance().init(getApplication());
-
-
-        //test  local modify
-        //修改local分支内容，然后合并
-
 
     }
 
@@ -144,6 +117,5 @@ public class MainActivity extends MyBaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        MPLogger.setUserId(null);
     }
 }
