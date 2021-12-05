@@ -3,8 +3,8 @@ package com.mccree.review.module.mpaas;
 
 import android.os.Bundle;
 
-import com.alipay.mobile.framework.app.ui.BaseFragmentActivity;
 import com.mccree.review.R;
+import com.mccree.review.base.MyBaseActivity;
 //import com.mpaas.cdp.CdpAdvertisementService;
 //import com.mpaas.cdp.structure.SpaceInfo;
 
@@ -14,7 +14,7 @@ import com.mccree.review.R;
  * Created Date: 2021/9/10 14:34
  * Description: MPaaS启动页(广告)
  */
-public class MPaaSSplashActivity extends BaseFragmentActivity {
+public class MPaaSSplashActivity extends MyBaseActivity {
 
 
     @Override
@@ -22,9 +22,6 @@ public class MPaaSSplashActivity extends BaseFragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mpaa_ssplash);
 
-//        show();
-        CdpManager.getInstance().showCdpSplash(this);
-        CdpManager.getInstance().refreshAllCdp();
     }
 
 //    private void show() {
